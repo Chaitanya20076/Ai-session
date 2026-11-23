@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #fcf8f0;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --text-muted: #78716c;
+    --card-bg: #ffffff;
+    --card-border: rgba(251, 146, 60, 0.25);
+  }
+
+  html.dark {
+    --bg-canvas: #0c0a09;
+    --text-primary: #fafaf9;
+    --text-secondary: #e7e5e4;
+    --text-muted: #a8a29e;
+    --card-bg: #181513;
+    --card-border: rgba(249, 115, 22, 0.25);
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Light Mode Canvas Mesh: Cream & Warm Amber */
+.theme-canvas-light {
+  background: 
+    radial-gradient(circle at 85% 10%, rgba(251, 146, 60, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 10% 30%, rgba(254, 215, 170, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 60% 85%, rgba(253, 186, 116, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #fdfbf7 0%, #faf5ec 50%, #f5ece0 100%);
+}
+
+/* Dark Mode Canvas Mesh: Deep Smoked Espresso & Glowing Amber Embers */
+.dark .theme-canvas-dark {
+  background: 
+    radial-gradient(circle at 80% 12%, rgba(234, 88, 12, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 15% 40%, rgba(194, 65, 12, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 70% 85%, rgba(249, 115, 22, 0.12) 0%, transparent 45%),
+    linear-gradient(135deg, #0c0a09 0%, #13110f 50%, #171412 100%) !important;
+}
+
+/* Visionary Cards with Crystal-Clear Contrast */
+.card-visionary {
+  border-radius: 26px;
+  background-color: #ffffff;
+  border: 1px solid rgba(251, 146, 60, 0.22);
+  box-shadow: 0 14px 34px -10px rgba(180, 83, 9, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .card-visionary {
+  background-color: #181513;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 18px -4px rgba(249, 115, 22, 0.12);
+}
+
+.card-visionary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 18px 38px -8px rgba(234, 88, 12, 0.18);
+}
+
+/* Active Homework Orange Glowing Card with right arrow notch */
+.active-homework-card {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  border-radius: 22px;
+  position: relative;
+  box-shadow: 0 12px 28px -5px rgba(234, 88, 12, 0.45);
+}
+
+.active-homework-card::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #ea580c;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.7);
+}

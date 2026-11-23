@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+
+# Firebase service account keys
+*serviceAccountKey*.json
+*firebase-admin*.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data & uploads
+backend/uploads/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build outputs
+frontend/dist/
+frontend/dist-ssr/
+backend/dist/
+*.local
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
