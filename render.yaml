@@ -1,0 +1,43 @@
+services:
+  # ------------------------------------------------------------
+  # Backend: Express REST API & AI Calculation Engine
+  # ------------------------------------------------------------
+  - type: web
+    name: learnsphere-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: GEMINI_API_KEY
+        sync: false # Set securely in Render dashboard
+      - key: STORAGE_MODE
+        value: local
+      - key: UPLOAD_DIR
+        value: uploads
+      - key: FRONTEND_URL
+        value: https://learnsphere-frontend.onrender.com
+
+  # ------------------------------------------------------------
+  # Frontend: React + Vite Single Page Application
+  # ------------------------------------------------------------
+  - type: static
+    name: learnsphere-frontend
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://learnsphere-backend.onrender.com/api/v1
